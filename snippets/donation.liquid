@@ -77,7 +77,7 @@
     <span class="donation-variable-amount">
       <input class="hidden{% unless fixed_amount_in_cart or donation_amount == 0 %} active{% endunless %}" type="radio" name="donation-fixed-amount" id="donation-variable" value="" {% unless fixed_amount_in_cart or donation_amount == 0 %}checked{% endunless %} />
       <label class="donation-variable-amount__label donation" for="donation-variable">Other</label>
-      <input class="donation-variable-amount__input{% if fixed_amount_in_cart %} donation-variable-amount__input--disabled{% endif %}" placeholder="{{ 0 | money }}" {% if fixed_amount_in_cart %}disabled="disabled"{% endif %}{% unless donation_amount == 0 %} value="{{ donation_amount | times: 100 | money_without_trailing_zeros }}"{% endunless %} type="text" data-variant-id="{{ product.variants.first.id }}" />
+      <input class="donation-variable-amount__input{% if fixed_amount_in_cart %} donation-variable-amount__input--disabled{% endif %}" placeholder="{{ 0 | money }}" {% if fixed_amount_in_cart %}disabled{% endif %}{% unless donation_amount == 0 %} value="{{ donation_amount | times: 100 | money_without_trailing_zeros }}"{% endunless %} type="text" data-variant-id="{{ product.variants.first.id }}" />
     </span>
     {% endif %}
 
@@ -94,6 +94,7 @@ jQuery(function($) {
   var fixedAmountButtons = $('[name="donation-fixed-amount"]'),
     donationVariableAmount = $('.donation-variable-amount__input'),
     cartCountSelector = 'body .cart, #cart-count a:first, #gocart p a, #cart .checkout em, .item-count',
+    cartFormButtons = $('form[action="/cart"]').find('[name="update"], [name="checkout"], [name="goto_pp"], [name="goto_gc"]'),
     data = { updates: {} },
     qty = 0,
     variantId,
@@ -111,8 +112,7 @@ jQuery(function($) {
             data['updates'][variantId] = 0;
           }
         }
-      });  
-      {% if has_variable_donation %}  
+      });    
       if (isFixedAmount) {
         donationVariableAmount.val('');
         data['updates'][{{ product.variants[variable_donation_index_in_product].id }}] = 0;
@@ -121,19 +121,18 @@ jQuery(function($) {
         qty = parseInt(donationVariableAmount.val().replace(/[^0-9.,]/,''), 10) || 0;
         data['updates'][{{ product.variants[variable_donation_index_in_product].id }}] = qty;
       }
-      {% endif %}
       $.ajax({
         type: 'POST',
         url: '/cart/update.js', 
-        data: jQuery('form[action="/cart"]').serialize(),
+        data: $('form[action="/cart"]').serialize(),
         dataType: 'json',
-        success: function() { 
+        success: function() {
           $.ajax({
             type: 'POST',
             url: '/cart/update.js',
             data: data,
             dataType: 'json',
-            success: function() { 
+            success: function() {
               window.location.href = '/cart';
             }
           });
@@ -186,7 +185,8 @@ jQuery(function($) {
   });
   
   // If Donation amount has changed, update donation.
-  donationVariableAmount.bind('change', function() {
+  donationVariableAmount.bind('change, blur', function() {
+    cartFormButtons.prop('disabled', true);
     updateDonation();
   });
   
