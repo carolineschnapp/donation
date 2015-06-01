@@ -3,7 +3,9 @@ Add donation on cart page
 
 This quick tutorial will show you how to add a field for tip or donation to your cart page. It works by adding a product multiple times, worth $1, using [Ajax](https://docs.shopify.com/support/your-website/themes/can-i-use-ajax-api).
 
-This solution will only work for you if you apply it to your Cart page at <kbd>/cart</kbd>. **It will not work in a cart drawer or cart popup.** You will need to disable any cart drawer or popup in your theme if you wish to continue. Also, you cannot add the “How did you hear about us?” to any of the checkout pages. The cart page is the latest stage at which you are able to collect that information.
+![Alt text](https://monosnap.com/file/BxCXbuyE5FrA7XnCcLTO3CeLeRCoIm.png)
+
+This donation can only be added to the order on the Cart page at <kbd>/cart</kbd>. **This solution will not work in a cart drawer or cart popup.** You will need to disable any cart drawer or popup in your theme if you wish to continue.
 
 This tutorial won't work for you if you use the **Lookbook** theme.
 
@@ -39,15 +41,15 @@ If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopi
 
 2. To include a box (on your cart page) where the user inputs the exact dollar amount to donate, [add a $1-priced variant](/manual/your-store/products/variants#create-product-variant) to your product that also has the *Title* set to $1:
 
-	 ![Alt text](https://monosnap.com/file/CVqLZsAB3PAW1lO2MW7LUnr16348pb.png)
+   ![Alt text](https://monosnap.com/file/CVqLZsAB3PAW1lO2MW7LUnr16348pb.png)
 
 3. Add more variants if you want to list suggested amounts on your cart page:
 
-	 ![Alt text](https://monosnap.com/file/LrcHZGpFu1Ivxbc1kRAPbjRk4fc5JA.png)
+   ![Alt text](https://monosnap.com/file/LrcHZGpFu1Ivxbc1kRAPbjRk4fc5JA.png)
 
 4. If you only want to list suggested amounts, skip the $1-priced variant:
 
-	 ![Alt text](https://monosnap.com/file/coqOUUz8CcaJDFniwkq5DJqZuKsChD.png)
+   ![Alt text](https://monosnap.com/file/coqOUUz8CcaJDFniwkq5DJqZuKsChD.png)
 
 5. [Create a link list](/manual/your-website/navigation/create-new-navigation) called "Donation". **The link list name "Donation" is mandatory.**
 
@@ -69,7 +71,9 @@ If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopi
 
 14. Paste the following code in your [cart.liquid](//www.shopify.com/admin/themes/current?key=templates/cart.liquid) file. You may want to place it somewhere near your checkout button.
  
-    {% include 'donation' %}
-
+   ```liquid
+   {% include 'donation' %}
+   ```
+   
 15. Save your changes. You're done.
 
