@@ -33,13 +33,13 @@ If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopi
 1. Create a donation product. If you want an input box, add a variant of $1 to it.
 2. If you want to provide fixed amount options, add those as variants to your product.
 3. On the Navigation page, create a link list with handle 'donation'.
-4. Include the <tt>donation.liquid</tt> snippet anywhere in the cart.liquid template.
+4. Include the <kbd>donation.liquid</kbd> snippet anywhere in the cart.liquid template.
 
 #### Step by step instructions
 
-1. [Create a product](/manual/your-store/products/create-product) for your donation. Name your product however you want. Remember to uncheck **This product requires shipping**, and optionally uncheck **Charge taxes on this product**.
+1. Create a product for your donation. Name your product however you want. Remember to uncheck **This product requires shipping**, and optionally uncheck **Charge taxes on this product**.
 
-2. To include a box (on your cart page) where the user inputs the exact dollar amount to donate, [add a $1-priced variant](/manual/your-store/products/variants#create-product-variant) to your product that also has the *Title* set to $1:
+2. To include a box (on your cart page) where the user inputs the exact dollar amount to donate, add a $1-priced variant to your product that also has the *Title* set to $1:
 
    ![Alt text](https://monosnap.com/file/CVqLZsAB3PAW1lO2MW7LUnr16348pb.png)
 
@@ -51,7 +51,7 @@ If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopi
 
    ![Alt text](https://monosnap.com/file/coqOUUz8CcaJDFniwkq5DJqZuKsChD.png)
 
-5. [Create a link list](/manual/your-website/navigation/create-new-navigation) called "Donation". **The link list name "Donation" is mandatory.**
+5. Create a link list called "Donation". **The link list name "Donation" is mandatory.**
 
 6. Under the **Links** section, type in "Donation" for the <tt>Link Name</tt>.
 
@@ -69,7 +69,7 @@ If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopi
 
 13. Click **Save**.
 
-14. Paste the following code in your [cart.liquid](//www.shopify.com/admin/themes/current?key=templates/cart.liquid) file. You may want to place it somewhere near your checkout button.
+14. Paste the following code in your [cart.liquid](https://www.shopify.com/admin/themes/current?key=templates/cart.liquid) file. You may want to place it somewhere near your checkout button.
  
    ```liquid
    {% include 'donation' %}
