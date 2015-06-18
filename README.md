@@ -11,7 +11,7 @@ This tutorial won't work for you if you use the **Lookbook** theme.
 
 If your store uses **Classic**, **Pop**, **Solo**, or **Supply**, visit your [Customize theme page](//www.shopify.com/admin/themes/current/editor), look in the **Cart page** section, and deselect the **Enable Ajaxify Cart** box, or set the **Cart type** to **Page**.
 
-If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopify.com/admin/themes/current/editor), look in the **Products** section, and deselect the **Enable slide-out shopping cart** box, or in earlier versions of the theme look in the **Cart page** section, and set the **Cart type** to **Page**.
+If you use the **Brooklyn** theme, go to your [Customize theme page](//www.shopify.com/admin/themes/current/editor), look in the **Products** section, and deselect the **Enable slide-out shopping cart** box, or in newer versions of the theme look in the **Cart page** section, and set the **Cart type** to **Page**.
 
 [View Demo](http://donation-tutorial.myshopify.com/)
 
